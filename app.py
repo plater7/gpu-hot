@@ -58,6 +58,12 @@ async def index():
         return HTMLResponse(content=f.read())
 
 
+@app.get("/api/health")
+async def api_health():
+    """Health check endpoint for monitoring"""
+    return {"status": "healthy", "mode": config.MODE}
+
+
 @app.get("/api/gpu-data")
 async def api_gpu_data():
     """REST API endpoint for GPU data"""
